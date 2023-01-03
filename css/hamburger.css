@@ -1,0 +1,66 @@
+/* Credits to @Hyperplexed on CodePen! */
+:root{
+    --primary-cyan-500: rgb(44, 102, 110);
+}
+
+#hamburger-wrapper{
+    transform: scale(40%) translateX(75%);
+}
+
+:is(#hamburger-btn, #hamburger-icon){
+    overflow: visible;
+    z-index: 80;
+}
+
+#hamburger-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 5rem;
+  outline: none;
+  padding: 0;
+  width: 6.25rem;
+}
+
+#hamburger-btn.toggled #hamburger-icon {
+  background-color: transparent;
+}
+
+#hamburger-btn.toggled #hamburger-icon:before {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+#hamburger-btn.toggled #hamburger-icon:after {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+#hamburger-btn #hamburger-icon {
+  background-color: var(--primary-cyan-500);
+  border-radius: 6.25rem;
+  height: 0.625rem;
+  position: relative;
+  transition: all 0.25s;
+  width: 6.25rem;
+}
+
+#hamburger-btn #hamburger-icon:before,
+#hamburger-btn #hamburger-icon:after {
+  background-color: var(--primary-cyan-500);
+  border-radius: 6.25rem;
+  content: "";
+  height: 0.625rem;
+  left: 0;
+  position: absolute;
+  transition: all 0.25s;
+  width: 6.25rem;
+}
+
+#hamburger-btn #hamburger-icon:before {
+  top: -1.875rem;
+}
+
+#hamburger-btn #hamburger-icon:after {
+  bottom: -1.875rem;
+}

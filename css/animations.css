@@ -1,0 +1,256 @@
+/* Additional animations (outside of tailwind) */
+:root {
+   --primary-white-200: rgb(240, 237, 238);
+   --primary-black-900: rgb(10, 9, 12);
+   --primary-cyan-700: rgb(7, 57, 60);
+   --primary-cyan-500: rgb(44, 102, 110);
+   --primary-cyan-200: rgb(144, 221, 240);
+}
+
+/* Navbar menu gradient */
+.navbar-menu-btn {
+   background: rgba(10, 9, 12, 0.85);
+}
+
+.navbar-menu-gradient {
+   opacity: 0;
+   transform: translateX(100%);
+   transition: all 0.5s;
+}
+
+.navbar-menu-btn:hover > .navbar-menu-gradient {
+   background: linear-gradient(270deg, var(--primary-cyan-500), transparent);
+   transform: translateX(0%);
+   opacity: 1;
+}
+
+.navbar-menu-btn:not(:hover) > .navbar-menu-gradient {
+   background: linear-gradient(270deg, var(--primary-cyan-500), transparent);
+   transform: translateX(100%);
+}
+
+/* Animate expand button container */
+@keyframes pulseInfinite {
+   0% {
+      transform: scale(100%);
+   }
+   50% {
+      transform: scale(110%);
+   }
+   100% {
+      transform: scale(100%);
+   }
+}
+
+#expand-btn-container {
+   animation: pulseInfinite 2s ease-in-out infinite;
+}
+
+/* Copied clipboard message appear & disappear */
+#copied-clipboard-msg {
+   animation: appearFromBottom 0.75s cubic-bezier(0.11, 0.7, 0.24, 0.95)
+         forwards,
+      appearFromBottom 0.75s cubic-bezier(0.11, 0.7, 0.24, 0.95) reverse,
+      opacityNull 0.75s linear forwards;
+   animation-delay: 0s, 1.5s, 2.25s;
+   translate: -2.25rem 0%;
+   opacity: 0;
+}
+
+@media (max-width: 640px) {
+   #copied-clipboard-msg {
+      animation: appearFromBottomMedia 0.75s cubic-bezier(0.11, 0.7, 0.24, 0.95)
+            forwards,
+         appearFromBottomMedia 0.75s cubic-bezier(0.11, 0.7, 0.24, 0.95) reverse,
+         opacityNull 0.75s linear forwards;
+      animation-delay: 0s, 1.5s, 2.25s;
+      translate: 3rem 0%;
+   }
+}
+
+@keyframes appearFromBottom {
+   0% {
+      transform: scale(60%);
+      translate: -2.25rem 50%;
+      opacity: 0;
+   }
+
+   100% {
+      transform: scale(100%);
+      translate: -2.25rem 0%;
+      opacity: 1;
+   }
+}
+
+@keyframes appearFromBottomMedia {
+   0% {
+      transform: scale(60%);
+      translate: 3rem 50%;
+      opacity: 0;
+   }
+
+   100% {
+      transform: scale(100%);
+      translate: 3rem 0%;
+      opacity: 1;
+   }
+}
+
+@keyframes opacityNull {
+   from {
+      opacity: 0;
+   }
+
+   to {
+      opacity: 0;
+   }
+}
+
+/* Navbar menu */
+#navbar-menu {
+   transform: translateX(100%);
+   transition: transform 0.75s cubic-bezier(0.44, 0.11, 0.5, 0.96);
+}
+
+#navbar-menu.showNavbar {
+   transform: translateX(0%);
+}
+
+/* Hero slide from left when page is visited */
+.slideFromLeftEntryAnimation {
+   animation: slideFromLeftEntryAnimation 1.75s
+      cubic-bezier(0.2, 0.42, 0.28, 0.99) both;
+   animation-delay: 0ms;
+}
+.slideFromLeftEntryAnimation:nth-child(2) {
+   animation-delay: 200ms;
+}
+.slideFromLeftEntryAnimation:nth-child(3) {
+   animation-delay: 1000ms;
+}
+
+@keyframes slideFromLeftEntryAnimation {
+   0% {
+      transform: translateX(-50%);
+      opacity: 0;
+   }
+   100% {
+      transform: translateX(0%);
+      opacity: 1;
+   }
+}
+
+/* Hero background image */
+#hero-bg-img {
+   animation: exposureFromDarker 2.25s cubic-bezier(0.2, 0.42, 0.28, 0.99) both;
+}
+
+@keyframes exposureFromDarker {
+   from {
+      filter: brightness(50%);
+   }
+   to {
+      filter: brightness(100%);
+   }
+}
+
+/* Hero download now button */
+#hero-download-scroll-btn {
+   transition: all 0.25s ease-in-out;
+}
+
+#hero-download-scroll-btn:hover {
+   scale: 102.5%;
+   filter: brightness(115%) saturate(110%)
+      drop-shadow(0 0 0.5rem var(--primary-cyan-500));
+}
+
+/* Expand history button */
+#expand-btn-container {
+   transition: all 0.25s ease-in-out;
+}
+
+#expand-btn-container:hover {
+   filter: brightness(115%);
+   scale: 110%;
+}
+
+/* Actual download button */
+.download-btn {
+   transition: all 0.25s ease-in-out;
+}
+
+.download-btn:hover {
+   filter: brightness(115%) drop-shadow(0 0 0.7rem var(--primary-cyan-500));
+   scale: 95%;
+}
+
+/* Info about download button */
+.info-scroll-btn {
+   transition: all 0.25s ease-in-out;
+}
+
+.info-scroll-btn:hover {
+   scale: 95%;
+   filter: drop-shadow(0 0 0.05rem var(--primary-white-200));
+}
+
+/* Social media buttons */
+.social-btn {
+   transition: all 0.25s ease-in-out;
+}
+
+.social-btn:hover {
+   scale: 95%;
+   filter: drop-shadow(0 0 0.1rem var(--primary-white-200));
+}
+
+/* Batch script link */
+#batch-script-link {
+   transition: 0.15s all ease-in-out;
+}
+
+#batch-script-link:hover {
+   color: var(--primary-cyan-200);
+}
+
+/* Navbar links */
+.navbar-links {
+   transition: 0.25s all ease-in-out;
+}
+
+.navbar-links:hover {
+   scale: 95%;
+}
+
+/* Footer link */
+.footer-link {
+   transition: 0.25s all ease-in-out;
+}
+
+.footer-link:hover {
+   color: var(--primary-cyan-200);
+}
+
+/* Underline part of links in footer */
+.footer-link-underline {
+   transition: 0.25s all ease-in-out;
+   background-color: var(--primary-cyan-200);
+   transform: translateX(-200%);
+}
+
+.footer-link:hover + .footer-link-underline-container > .footer-link-underline {
+   background-color: var(--primary-cyan-200);
+   transform: translateX(0%);
+}
+
+/* Footer download button */
+#footer-download-btn {
+   transition: 0.25s all ease-in-out;
+}
+
+#footer-download-btn:hover {
+   scale: 97.5%;
+   color: var(--primary-cyan-200);
+   border-color: var(--primary-cyan-200);
+}

@@ -1,0 +1,11 @@
+/* Additional media queries (outside of tailwind because custom works wouldn't work for some reason) */
+/* Navbar links & hamburger icon */
+@media (min-width: 1014px) {
+   .navbar-links {
+      display: block !important;
+   }
+
+   #hamburger-wrapper {
+      display: none !important;
+   }
+}
